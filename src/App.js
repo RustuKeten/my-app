@@ -1,14 +1,11 @@
-import logo from "./logo.svg";
 import "./App.css";
+import React from "react";
+import AppRouter from "./app-router/AppRouter";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        {" "}
-        fire blog app
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
+    <div>
+      <AppRouter />
     </div>
   );
 }

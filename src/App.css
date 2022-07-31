@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+
+.rustu {
+  width: 30%;
+  text-align: center;
+  border-bottom: 3px solid white;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+}
+
+.rustu span {
+  background: #0d6efd;
+  color: rgb(240, 207, 24);
+  padding: 0 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.blog {
+  border: 1px solid white;
+  border-radius: 50%;
+  background: #0d6efd;
+}
+.register {
+  background: #0d6efd;
+}
