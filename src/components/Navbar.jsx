@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import cw from "../assets/cw.jpeg";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
+import { AuthContext } from "../context/AuthContext";
+import { logOut } from "../helpers/firebase";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const currentUser = false;
+  const { currentUser } = useContext(AuthContext);
+  // const currentUser = false;
   return (
     <nav
       className="navbar navbar-expand-lg bg-primary"
@@ -64,9 +67,9 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link className="dropdown-item" to="/">
+                  <button className="dropdown-item" onClick={() => logOut()}>
                     Logout
-                  </Link>
+                  </button>
                 </li>
               </ul>
             </>

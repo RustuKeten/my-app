@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import DashBoard from "../pages/DashBoard";
 import Login from "../pages/Login";
@@ -10,7 +10,7 @@ import Profile from "../pages/Profile";
 import NewBlog from "../pages/NewBlog";
 const AppRouter = () => {
   return (
-    <BrowserRouter>
+    <>
       <Navbar />
       <Routes>
         <Route path="/" element={<DashBoard />} />
@@ -21,7 +21,7 @@ const AppRouter = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/newblog" element={<NewBlog />} />
       </Routes>
-    </BrowserRouter>
+    </>
   );
 };
 

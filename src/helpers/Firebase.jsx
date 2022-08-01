@@ -3,6 +3,8 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
 } from "firebase/auth";
 import {
   toastErrorNotify,
@@ -52,4 +54,19 @@ export const signIn = async (email, password, navigate) => {
     toastErrorNotify(error.message);
     console.log(error);
   }
+};
+
+export const userObserver = (setCurrentUser) => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setCurrentUser(user);
+    } else {
+      setCurrentUser(false);
+    }
+  });
+};
+
+export const logOut = () => {
+  signOut(auth);
+  toastSuccessNotify("Logged out See You Soon!");
 };
