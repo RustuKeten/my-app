@@ -6,7 +6,7 @@ import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const currentUser = true;
+  const currentUser = false;
   return (
     <nav
       className="navbar navbar-expand-lg bg-primary"

@@ -8,11 +8,15 @@
 
 * build navbar
   I use fontawesome to add icons, import fonts from google fonts
+  I miss copy bootstrap-cdn to index in public as script, dont forget next time
+  \*toastNotify; npm i toast, import react-toastNotify , index.js import, toastcontainer app'te import ve sarmala sok, firebase'de try catch yaz,
+  \*gitignore'da .env dosyasını ekle.
 
 - build pages
   +login, +register,
 - build context (ContextProvider sarmalasın)
-- .env
+- .env \* I create firebase.js as Firebase.js ,so I couldn't contact with data
+  dont forget next time
 - author info, window.onload data in BlogContext
 - implement toastify
 - register continue with google

@@ -1,16 +1,18 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import blok from "../assets/blok.png";
 import google from "../assets/google.png";
-import { createUser } from "../helpers/Firebase";
+import { createUser } from "../helpers/firebase";
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
     console.log(email, password);
-    createUser(email, password);
+    createUser(email, password, navigate);
   };
   return (
     <div className="registerContainer">
@@ -32,54 +34,57 @@ const Register = () => {
                   />
                   <div className="mb-md-5 mt-md-4 pb-5">
                     <h2 className="mb-2 text-uppercase">Register</h2>
+                    <form onSubmit={handleRegister}>
+                      <div className="form-outline form-white mb-4">
+                        <input
+                          type="email"
+                          id="email"
+                          required
+                          value={email}
+                          className="form-control form-control-lg"
+                          onChange={(e) => setEmail(e.target.value)}
+                        />
+                        <label className="form-label" htmlFor="typeEmailX">
+                          Email
+                        </label>
+                      </div>
 
-                    <div className="form-outline form-white mb-4">
+                      <div className="form-outline form-white mb-4">
+                        <input
+                          type="password"
+                          id="password"
+                          required
+                          className="form-control form-control-lg"
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
+                        />
+                        <label className="form-label" htmlFor="typePasswordX">
+                          Password
+                        </label>
+                      </div>
+
                       <input
-                        type="email"
-                        id="email"
-                        className="form-control form-control-lg"
-                        onChange={(e) => setEmail(e.target.value)}
+                        className="btn btn-outline-light btn-lg px-5 register"
+                        type="submit"
+                        value="register"
+                        style={{ borderRadius: " 1rem" }}
                       />
-                      <label className="form-label" htmlFor="typeEmailX">
-                        Email
-                      </label>
-                    </div>
-
-                    <div className="form-outline form-white mb-4">
-                      <input
-                        type="password"
-                        id="password"
-                        className="form-control form-control-lg"
-                        onChange={(e) => setPassword(e.target.value)}
-                      />
-                      <label className="form-label" htmlFor="typePasswordX">
-                        Password
-                      </label>
-                    </div>
-
-                    <button
-                      className="btn btn-outline-light btn-lg px-5 register"
-                      type="submit"
-                      style={{ borderRadius: " 1rem" }}
-                    >
-                      Register
-                    </button>
-                    <hr />
-                    <button
-                      className="btn btn-outline-light btn-lg px-5 register"
-                      type="submit"
-                      style={{ borderRadius: " 1rem" }}
-                      onClick={handleRegister}
-                    >
-                      with
-                      <img
-                        src={google}
-                        width="80"
-                        height="30"
-                        alt=""
-                        className="m-2"
-                      />
-                    </button>
+                      <hr />
+                      <button
+                        className="btn btn-outline-light btn-lg px-5 register"
+                        type="submit"
+                        style={{ borderRadius: " 1rem" }}
+                      >
+                        with
+                        <img
+                          src={google}
+                          width="80"
+                          height="30"
+                          alt=""
+                          className="m-2"
+                        />
+                      </button>
+                    </form>
                   </div>
                 </div>
               </div>
