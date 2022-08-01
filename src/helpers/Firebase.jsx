@@ -6,13 +6,14 @@ import {
   toastWarnNotify,
 } from "../helpers/ToastNotify";
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_apiKey,
-  authDomain: process.env.REACT_APP_authDomain,
-  databaseURL: process.env.REACT_APP_databaseURL,
-  projectId: process.env.REACT_APP_projectId,
-  storageBucket: process.env.REACT_APP_storageBucket,
-  messagingSenderId: process.env.REACT_APP_messagingSenderId,
-  appId: process.env.REACT_APP_appId,
+  apiKey: "AIzaSyAsqRw-uEvLgqde3yk8kMzJcKIAZSDqFFE",
+  authDomain: "fireblog-a1271.firebaseapp.com",
+  databaseURL:
+    "https://fireblog-a1271-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "fireblog-a1271",
+  storageBucket: "fireblog-a1271.appspot.com",
+  messagingSenderId: "971708873582",
+  appId: "1:971708873582:web:d27a8315eeb4fd7837df7f",
 };
 
 const app = initializeApp(firebaseConfig);

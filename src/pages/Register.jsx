@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import blok from "../assets/blok.png";
 import google from "../assets/google.png";
+import { createUser } from "../helpers/Firebase";
 
 const Register = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    console.log(email, password);
+    createUser(email, password);
+  };
   return (
-    <div>
+    <div className="registerContainer">
       <section className="vh-100 gradient-custom">
         <div className="container py-5 h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
@@ -17,8 +26,8 @@ const Register = () => {
                   <img
                     src={blok}
                     alt=""
-                    width="150"
-                    height="150"
+                    width="180"
+                    height="180"
                     className="blog"
                   />
                   <div className="mb-md-5 mt-md-4 pb-5">
@@ -27,8 +36,9 @@ const Register = () => {
                     <div className="form-outline form-white mb-4">
                       <input
                         type="email"
-                        id="typeEmailX"
+                        id="email"
                         className="form-control form-control-lg"
+                        onChange={(e) => setEmail(e.target.value)}
                       />
                       <label className="form-label" htmlFor="typeEmailX">
                         Email
@@ -38,8 +48,9 @@ const Register = () => {
                     <div className="form-outline form-white mb-4">
                       <input
                         type="password"
-                        id="typePasswordX"
+                        id="password"
                         className="form-control form-control-lg"
+                        onChange={(e) => setPassword(e.target.value)}
                       />
                       <label className="form-label" htmlFor="typePasswordX">
                         Password
@@ -51,13 +62,14 @@ const Register = () => {
                       type="submit"
                       style={{ borderRadius: " 1rem" }}
                     >
-                      REGISTER
+                      Register
                     </button>
                     <hr />
                     <button
                       className="btn btn-outline-light btn-lg px-5 register"
                       type="submit"
                       style={{ borderRadius: " 1rem" }}
+                      onClick={handleRegister}
                     >
                       with
                       <img

@@ -60,3 +60,8 @@
 .register {
   background: #0d6efd;
 }
+.registerContainer,
+.loginContainer {
+  background-image: url(https://picsum.photos/800/800);
+  background-size: cover;
+}

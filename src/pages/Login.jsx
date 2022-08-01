@@ -4,7 +4,7 @@ import google from "../assets/google.png";
 
 const Register = () => {
   return (
-    <div>
+    <div className="loginContainer">
       <section className="vh-100 gradient-custom">
         <div className="container py-5 h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
@@ -17,8 +17,8 @@ const Register = () => {
                   <img
                     src={blok}
                     alt=""
-                    width="150"
-                    height="150"
+                    width="180"
+                    height="180"
                     className="blog"
                   />
                   <div className="mb-md-5 mt-md-4 pb-5">

@@ -1,10 +1,12 @@
 import React from "react";
 import cw from "../assets/cw.jpeg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const currentUser = true;
   return (
     <nav
       className="navbar navbar-expand-lg bg-primary"
@@ -20,7 +22,11 @@ const Navbar = () => {
             className="d-inline-block align-text-top"
           />
         </a>
-        <p className="text-warning rustu">
+        <p
+          className="text-warning rustu cursor-pointer"
+          role="button"
+          onClick={() => navigate("/")}
+        >
           <span>
             <big>&lt;R</big>
             <small>USTU</small>
@@ -32,10 +38,10 @@ const Navbar = () => {
             </span>
           </span>
         </p>
-        <div className="dropdown" style={{ marginRight: "2rem" }}>
+        <div className="dropdown border-0" style={{ marginRight: "2rem" }}>
           <button
             type="button"
-            className="btn dropdown mr-4"
+            className="btn dropdown border-0"
             data-bs-toggle="dropdown"
             // aria-expanded="false"
           >
@@ -44,18 +50,42 @@ const Navbar = () => {
               icon={faCircleUser}
             ></FontAwesomeIcon>
           </button>
-          <ul className="dropdown-menu ">
-            <li>
-              <Link className="dropdown-item" to="/login">
-                Login
-              </Link>
-            </li>
-            <li>
-              <Link className="dropdown-item" to="/register">
-                Register
-              </Link>
-            </li>
-          </ul>
+          {currentUser ? (
+            <>
+              <ul className="dropdown-menu ">
+                <li>
+                  <Link className="dropdown-item" to="/profile">
+                    Profile
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/newblog">
+                    New
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/">
+                    Logout
+                  </Link>
+                </li>
+              </ul>
+            </>
+          ) : (
+            <>
+              <ul className="dropdown-menu ">
+                <li>
+                  <Link className="dropdown-item" to="/login">
+                    Login
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/register">
+                    Register
+                  </Link>
+                </li>
+              </ul>
+            </>
+          )}
         </div>
       </div>
     </nav>
