@@ -8,6 +8,7 @@ import About from "../pages/About";
 import Details from "../pages/Details";
 import Profile from "../pages/Profile";
 import NewBlog from "../pages/NewBlog";
+import BlogForm from "../components/BlogForm";
 const AppRouter = () => {
   return (
     <>
@@ -16,10 +17,12 @@ const AppRouter = () => {
         <Route path="/" element={<DashBoard />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/about" element={<About />} />
+
+        {/* <Route path="/about" element={<About />} /> */}
         <Route path="/details" element={<Details />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/newblog" element={<NewBlog />} />
+        <Route path="/blogForm" element={<BlogForm />} />
       </Routes>
     </>
   );

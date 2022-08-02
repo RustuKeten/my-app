@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import { BlogContext } from "../context/BlogContext";
 
 const BlogForm = () => {
-  return <div>BlogForm</div>;
+  const { blogData } = useContext(BlogContext);
+  // console.log(blogData);
+
+  return (
+    <div>
+      <h3>merhaba</h3>
+    </div>
+  );
 };
 
 export default BlogForm;

@@ -12,7 +12,7 @@ const Navbar = () => {
   // const currentUser = false;
   return (
     <nav
-      className="navbar navbar-expand-lg bg-primary"
+      className="navbar navbar-expand-lg bg-primary navbar-inverse navbar-fixed-top"
       style={{ height: " 6rem" }}
     >
       <div className="container-fluid">
@@ -41,52 +41,75 @@ const Navbar = () => {
             </span>
           </span>
         </p>
-        <div className="dropdown border-0" style={{ marginRight: "2rem" }}>
-          <button
-            type="button"
-            className="btn dropdown border-0"
-            data-bs-toggle="dropdown"
-            // aria-expanded="false"
-          >
-            <FontAwesomeIcon
-              className="fa-2x text-light"
-              icon={faCircleUser}
-            ></FontAwesomeIcon>
-          </button>
+        <div className="d-flex text-white align-items-center ">
           {currentUser ? (
             <>
-              <ul className="dropdown-menu ">
-                <li>
-                  <Link className="dropdown-item" to="/profile">
-                    Profile
-                  </Link>
-                </li>
-                <li>
-                  <Link className="dropdown-item" to="/newblog">
-                    New
-                  </Link>
-                </li>
-                <li>
-                  <button className="dropdown-item" onClick={() => logOut()}>
-                    Logout
-                  </button>
-                </li>
-              </ul>
+              <h5 className="mb-0 text-warning">{currentUser.email}</h5>
+              <div
+                className="dropdown border-0"
+                style={{ marginRight: "2rem" }}
+              >
+                <button
+                  type="button"
+                  className="btn dropdown border-0"
+                  data-bs-toggle="dropdown"
+                  // aria-expanded="false"
+                >
+                  <FontAwesomeIcon
+                    className="fa-2x text-light text-center"
+                    icon={faCircleUser}
+                  ></FontAwesomeIcon>
+                </button>
+                <ul className="dropdown-menu">
+                  <li>
+                    <Link className="dropdown-item" to="/profile">
+                      Profile
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/newblog">
+                      New
+                    </Link>
+                  </li>
+                  <li>
+                    <button className="dropdown-item" onClick={() => logOut()}>
+                      Logout
+                    </button>
+                  </li>
+                </ul>
+              </div>
             </>
           ) : (
             <>
-              <ul className="dropdown-menu ">
-                <li>
-                  <Link className="dropdown-item" to="/login">
-                    Login
-                  </Link>
-                </li>
-                <li>
-                  <Link className="dropdown-item" to="/register">
-                    Register
-                  </Link>
-                </li>
-              </ul>
+              <h5 className="mb-0 text-capitalize">Sign In</h5>
+              <div
+                className="dropdown border-0"
+                style={{ marginRight: "2rem" }}
+              >
+                <button
+                  type="button"
+                  className="btn dropdown border-0"
+                  data-bs-toggle="dropdown"
+                  // aria-expanded="false"
+                >
+                  <FontAwesomeIcon
+                    className="fa-2x text-light text-center"
+                    icon={faCircleUser}
+                  ></FontAwesomeIcon>
+                </button>
+                <ul className="dropdown-menu">
+                  <li>
+                    <Link className="dropdown-item" to="/login">
+                      Login
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/register">
+                      Register
+                    </Link>
+                  </li>
+                </ul>
+              </div>
             </>
           )}
         </div>

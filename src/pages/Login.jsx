@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import blok from "../assets/blok.png";
 import google from "../assets/google.png";
-import { signIn } from "../helpers/firebase";
+import { signIn, signUpProvider } from "../helpers/firebase";
 import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -12,6 +12,9 @@ const Login = () => {
     e.preventDefault();
     console.log(email, password);
     signIn(email, password, navigate);
+  };
+  const handleProviderLogin = () => {
+    signUpProvider(navigate("/"));
   };
   return (
     <div className="loginContainer">
@@ -74,6 +77,7 @@ const Login = () => {
                         className="btn btn-outline-light btn-lg px-5 register"
                         type="submit"
                         style={{ borderRadius: " 1rem" }}
+                        onClick={handleProviderLogin}
                       >
                         with
                         <img

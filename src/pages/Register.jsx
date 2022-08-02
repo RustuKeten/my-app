@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import blok from "../assets/blok.png";
 import google from "../assets/google.png";
-import { createUser } from "../helpers/firebase";
+import { createUser, signUpProvider } from "../helpers/firebase";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -13,6 +13,9 @@ const Register = () => {
     e.preventDefault();
     console.log(email, password);
     createUser(email, password, navigate);
+  };
+  const handleProviderLogin = () => {
+    signUpProvider(navigate("/"));
   };
   return (
     <div className="registerContainer">
@@ -74,6 +77,7 @@ const Register = () => {
                         className="btn btn-outline-light btn-lg px-5 register"
                         type="submit"
                         style={{ borderRadius: " 1rem" }}
+                        onClick={handleProviderLogin}
                       >
                         with
                         <img

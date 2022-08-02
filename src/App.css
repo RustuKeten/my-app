@@ -1,3 +1,16 @@
+/* * {
+  font-family: "Girassol", "sans-serif";
+} */
+body {
+  margin: 0;
+  font-family: "Girassol", "sans-serif";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* code {
+  font-family: "Girassol" "sans-serif";
+}
 .App {
   text-align: center;
 }
@@ -35,23 +48,42 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
 
 .rustu {
-  width: 30%;
+  width: 40%;
   text-align: center;
   border-bottom: 3px solid white;
   line-height: 0.1em;
-  margin: 10px 0 20px;
+  margin: 10px 0 10px;
 }
 
 .rustu span {
+  font-family: "Girassol", "sans-serif";
   background: #0d6efd;
   color: rgb(240, 207, 24);
   padding: 0 10px;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
 }
+
+h1 {
+  font-family: "Girassol";
+  font-size: 4rem;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+h1::before,
+h1::after {
+  display: inline-block;
+  content: "";
+  border-top: 0.3rem solid black;
+  width: 4rem;
+  margin: 0 1rem;
+  transform: translateY(-1rem);
+}
+
 .blog {
   border: 1px solid white;
   border-radius: 50%;
@@ -64,4 +96,7 @@
 .loginContainer {
   background-image: url(https://picsum.photos/800/800);
   background-size: cover;
+}
+.dropdown {
+  font-family: "Segoe UI", "Tahoma", " Geneva", "Verdana", "sans-serif";
 }

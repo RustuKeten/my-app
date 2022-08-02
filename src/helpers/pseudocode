@@ -1,4 +1,5 @@
 ##PSEUDOCODE:##
+FIRST DAY(SATURDAY)
 
 - create folder tree
 
@@ -15,8 +16,7 @@
 - build pages
   +login, +register,
 - build context (ContextProvider sarmalasın) new function with createContext()+ newfunction.Provider (AuthContext.Provider) and sarmalla ve nerde kullanacaksan useContext
-- .env same line src/pbl/node \* I create firebase.js as Firebase.js ,so I couldn't contact with data
-  dont forget next time
+- .env same line src/pbl/node \* I create firebase.js as Firebase.js ,so I couldn't contact with data dont forget next time
 - author info, window.onload data in BlogContext
 - implement toastify
 - register continue with google
@@ -28,3 +28,10 @@
 - DOM elementlerini yakalamak için eventler kullanılabilir : onChange, onClick, onSubmit vs...form yapısı avantajlı
 - path = '/' element={Dashboard}
 - styling is up to individuals
+  TUESDAY
+  - font-family
+  - signUp with google
+  - display currentuser
+  - watch crud in youtube, read firebase doc.
+  - write first data in new blog,
+  - 

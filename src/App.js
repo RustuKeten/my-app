@@ -3,13 +3,16 @@ import React from "react";
 import AppRouter from "./app-router/AppRouter";
 import { ToastContainer } from "react-toastify";
 import AuthContextProvider from "./context/AuthContext";
+import BlogContextProvider from "./context/BlogContext";
 
 function App() {
   return (
     <div>
       <AuthContextProvider>
-        <AppRouter />
-        {/* <ToastContainer /> */}
+        <BlogContextProvider>
+          <AppRouter />
+          <ToastContainer />
+        </BlogContextProvider>
       </AuthContextProvider>
     </div>
   );

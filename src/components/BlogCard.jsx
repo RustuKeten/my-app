@@ -1,7 +1,13 @@
 import React from "react";
+import BlogForm from "./BlogForm";
 
 const BlogCard = () => {
-  return <div>BlogCard</div>;
+  return (
+    <div>
+      <BlogForm />
+      <BlogForm />
+    </div>
+  );
 };
 
 export default BlogCard;
