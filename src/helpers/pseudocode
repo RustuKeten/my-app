@@ -29,9 +29,14 @@ FIRST DAY(SATURDAY)
 - path = '/' element={Dashboard}
 - styling is up to individuals
   TUESDAY
+
   - font-family
   - signUp with google
   - display currentuser
   - watch crud in youtube, read firebase doc.
   - write first data in new blog,
-  - 
+    wednesday
+  - map() hata vermemesi için ilk-parent div e key={index} eklenmeli.
+  - logout func. ürettiğin fonsk, parametresi varsa çağırdığın yerde de parametere ile çağrılır.
+
+  önemli bilgi: react da işlem sırası önce return'den başlar sonra üst kısıma geçer.

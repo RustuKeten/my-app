@@ -99,7 +99,8 @@ export const db = getDatabase(app);
 
 export const writeNewBlog = (id, title, imageUrl, content, email) => {
   const db = getDatabase();
-  set(ref(db, "newBlog/" + id), {
+  set(ref(db, `/${id}`), {
+    id: id,
     title: title,
     imageUrl: imageUrl,
     content: content,
@@ -107,25 +108,7 @@ export const writeNewBlog = (id, title, imageUrl, content, email) => {
   });
 };
 
-//*2. step get that data(contact-app style);
-// export const useFetch = () => {
-//   const [dataList, setDataList] = useState();
-//   useEffect(() => {
-//     const db = getDatabase();
-//     const userRef = ref(db, "newBlog/");
-//     onValue(userRef, (snapshot) => {
-//       const data = snapshot.val();
-//       const userArray = [];
-//       for (let id in data) {
-//         userArray.push({ id, ...data[id] });
-//       }
-//       setDataList(userArray);
-//     });
-//   }, []);
-//   return { dataList };
-// };
-
-//*2.step Read by ytube...
+//*2. step  Read by ytube...
 
 export const readData = (setBlogData) => {
   onValue(ref(db), (snapshot) => {

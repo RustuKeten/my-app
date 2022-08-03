@@ -5,7 +5,6 @@ const BlogCard = () => {
   return (
     <div>
       <BlogForm />
-      <BlogForm />
     </div>
   );
 };

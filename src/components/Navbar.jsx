@@ -72,7 +72,10 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li>
-                    <button className="dropdown-item" onClick={() => logOut()}>
+                    <button
+                      className="dropdown-item"
+                      onClick={() => logOut(navigate)}
+                    >
                       Logout
                     </button>
                   </li>
