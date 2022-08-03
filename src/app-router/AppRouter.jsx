@@ -17,9 +17,7 @@ const AppRouter = () => {
         <Route path="/" element={<DashBoard />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-
-        {/* <Route path="/about" element={<About />} /> */}
-        <Route path="/details" element={<Details />} />
+        <Route path="/details:id" element={<Details />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/newblog" element={<NewBlog />} />
         <Route path="/blogForm" element={<BlogForm />} />

@@ -3,7 +3,7 @@ import BlogForm from "./BlogForm";
 
 const BlogCard = () => {
   return (
-    <div>
+    <div className="d-flex align-items-baseline flex-wrap justify-content-center gap-3">
       <BlogForm />
     </div>
   );

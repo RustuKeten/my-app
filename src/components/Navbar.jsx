@@ -26,7 +26,7 @@ const Navbar = () => {
           />
         </a>
         <p
-          className="text-warning rustu cursor-pointer"
+          className="text-warning rustu cursor-pointer d-none d-sm-block"
           role="button"
           onClick={() => navigate("/")}
         >
@@ -44,7 +44,9 @@ const Navbar = () => {
         <div className="d-flex text-white align-items-center ">
           {currentUser ? (
             <>
-              <h5 className="mb-0 text-warning">{currentUser.email}</h5>
+              <h5 className="mb-0 d-none d-sm-block d-sm-none d-md-block text-warning">
+                {currentUser.email}
+              </h5>
               <div
                 className="dropdown border-0"
                 style={{ marginRight: "2rem" }}

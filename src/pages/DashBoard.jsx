@@ -7,12 +7,8 @@ const DashBoard = () => {
   return (
     <>
       <h1 className="text-center">DASHBOARD</h1>
-      <div className="container">
-        <div className="row d-flex">
-          <div className="col-1 d-flex">
-            <BlogCard />
-          </div>
-        </div>
+      <div className="d-flex justify-content-center flex-wrap">
+        <BlogCard />
       </div>
     </>
   );
