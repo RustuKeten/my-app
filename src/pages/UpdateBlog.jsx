@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import blok from "../assets/blok.png";
 import { AuthContext } from "../context/AuthContext";
 import { BlogContext } from "../context/BlogContext";
@@ -7,16 +7,27 @@ import { updateData } from "../helpers/firebase";
 
 const UpdateBlog = () => {
   const { currentUser } = useContext(AuthContext);
-  const { blogData } = useContext(BlogContext);
-  const [title, setTitle] = useState("");
-  const [image, setImage] = useState("");
-  const [content, setContent] = useState("");
+  const {
+    blogData,
+    title,
+    setTitle,
+    imageUrl,
+    setImageUrl,
+    content,
+    setContent,
+  } = useContext(BlogContext);
+  // const [title, setTitle] = useState("");
+  // const [image, setImage] = useState("");
+  // const [content, setContent] = useState("");
   const { id } = useParams();
+  const email = currentUser.email;
+  const navigate = useNavigate();
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    updateData(id, title, image, content);
-    console.log(updateData);
+    // console.log("submitted", id, title, imageUrl, content, email);
+    updateData(id, title, imageUrl, content, email);
+    navigate("/details" + id);
   };
 
   return blogData
@@ -31,7 +42,7 @@ const UpdateBlog = () => {
                 <div className="col-12 col-md-8 col-lg-6 col-xl-5">
                   <div className="newBlog align-items-center ">
                     <img src="" alt="" />
-                    <form>
+                    <form onSubmit={handleUpdate}>
                       <img
                         src={blok}
                         alt=""
@@ -49,7 +60,7 @@ const UpdateBlog = () => {
                           className="form-control mb-2"
                           id="title"
                           placeholder="Title*"
-                          defaultValue={updateData.title}
+                          value={title}
                           onChange={(e) => setTitle(e.target.value)}
                         />
                       </div>
@@ -59,8 +70,8 @@ const UpdateBlog = () => {
                           className="form-control mb-2"
                           id="imageUrl"
                           placeholder="Image URL*"
-                          defaultValue={updateData.imageUrl}
-                          onChange={(e) => setImage(e.target.value)}
+                          value={imageUrl}
+                          onChange={(e) => setImageUrl(e.target.value)}
                         />
                       </div>
                       <div className="form-group ">
@@ -70,14 +81,14 @@ const UpdateBlog = () => {
                           id="content"
                           placeholder="Content*"
                           style={{ height: "150px" }}
-                          defaultValue={updateData.content}
+                          value={content}
                           onChange={(e) => setContent(e.target.value)}
                         />
                       </div>
                       <button
                         type="submit"
                         className="form-control bg-primary border-0 text-light"
-                        onSubmit={handleUpdate}
+                        // onSubmit={handleUpdate}
                       >
                         SUBMIT
                       </button>

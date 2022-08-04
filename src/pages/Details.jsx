@@ -6,9 +6,19 @@ import { deleteData } from "../helpers/firebase";
 
 const Details = () => {
   const { currentUser } = useContext(AuthContext);
-  const { blogData } = useContext(BlogContext);
+  const { blogData, setTitle, setImageUrl, setContent, setSendId } =
+    useContext(BlogContext);
   const { id } = useParams();
   const navigate = useNavigate();
+
+  const handleEdit = (content, title, imageUrl) => {
+    setTitle(title);
+    setImageUrl(imageUrl);
+    setContent(content);
+    setSendId(id);
+    navigate("/updateBlog" + id);
+    // console.log(title, content, imageUrl);
+  };
 
   return blogData
     ?.filter((item) => id == item.id)
@@ -34,7 +44,13 @@ const Details = () => {
             {currentUser.email === filteredData.email && (
               <>
                 <button
-                  onClick={() => navigate("/updateBlog" + filteredData.id)}
+                  onClick={() =>
+                    handleEdit(
+                      filteredData.content,
+                      filteredData.title,
+                      filteredData.imageUrl
+                    )
+                  } //**tekrar */
                 >
                   Update
                 </button>

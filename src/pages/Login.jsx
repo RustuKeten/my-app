@@ -18,9 +18,9 @@ const Login = () => {
   };
   return (
     <div className="Container">
-      <section className="vh-100 gradient-custom">
-        <div className="container py-5 h-100">
-          <div className="row d-flex justify-content-center align-items-center h-100">
+      <section className="vh-25 gradient-custom">
+        <div className="container py-3 h-25">
+          <div className="row d-flex justify-content-center align-items-center h-25">
             <div className="col-12 col-md-8 col-lg-6 col-xl-5">
               <div
                 className="card bg-dark text-white"
@@ -36,6 +36,7 @@ const Login = () => {
                   />
                   <div className="mb-md-5 mt-md-4 pb-5">
                     <h2 className="mb-2 text-uppercase">Login</h2>
+                    <hr />
                     <form onSubmit={handleLogin}>
                       <div className="form-outline form-white mb-4">
                         <input
@@ -44,11 +45,9 @@ const Login = () => {
                           value={email}
                           required
                           className="form-control form-control-lg"
+                          placeholder="Enter your email..."
                           onChange={(e) => setEmail(e.target.value)}
                         />
-                        <label className="form-label" htmlFor="typeEmailX">
-                          Email
-                        </label>
                       </div>
 
                       <div className="form-outline form-white mb-4">
@@ -57,24 +56,21 @@ const Login = () => {
                           value={password}
                           required
                           id="typePasswordX"
-                          className="form-control form-control-lg"
+                          className="form-control form-control-lg my-2"
+                          placeholder="Enter your password..."
                           onChange={(e) => setPassword(e.target.value)}
                         />
-                        <label className="form-label" htmlFor="typePasswordX">
-                          Password
-                        </label>
                       </div>
-
+                      <hr />
                       <button
-                        className="btn btn-outline-light btn-lg px-5 register"
+                        className="btn btn-outline-light btn-lg px-5 register d-flex d-inline-flex me-1 mt-4"
                         type="submit"
                         style={{ borderRadius: " 1rem" }}
                       >
                         Login
                       </button>
-                      <hr />
                       <button
-                        className="btn btn-outline-light btn-lg px-5 register"
+                        className="btn btn-outline-light btn-lg px-5 register d-flex d-inline-flex mt-4 "
                         type="submit"
                         style={{ borderRadius: " 1rem" }}
                         onClick={handleProviderLogin}
@@ -82,10 +78,10 @@ const Login = () => {
                         with
                         <img
                           src={google}
-                          width="80"
+                          width="60"
                           height="30"
                           alt=""
-                          className="m-2"
+                          className="pt-2 ps-1"
                         />
                       </button>
                     </form>

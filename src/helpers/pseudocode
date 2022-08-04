@@ -39,4 +39,7 @@ FIRST DAY(SATURDAY)
   - map() hata vermemesi için ilk-parent div e key={index} eklenmeli.
   - logout func. ürettiğin fonsk, parametresi varsa çağırdığın yerde de parametere ile çağrılır.
 
-  önemli bilgi: react da işlem sırası önce return'den başlar sonra üst kısıma geçer.
+  - önemli bilgi: react da işlem sırası önce return'den başlar sonra üst kısıma geçer.
+
+  -form yapısı varsa button type submit, func. form opening tag. button must be inside of form.- form varsa e.preventDefault lazım.
+  diğerlerinde parent tab.

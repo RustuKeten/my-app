@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import cw from "../assets/cw.jpeg";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
+import { faCircleUser, faStar } from "@fortawesome/free-solid-svg-icons";
 import { AuthContext } from "../context/AuthContext";
 import { logOut } from "../helpers/firebase";
 
@@ -12,11 +12,11 @@ const Navbar = () => {
   // const currentUser = false;
   return (
     <nav
-      className="navbar navbar-expand-lg bg-primary navbar-inverse navbar-fixed-top"
-      style={{ height: " 6rem" }}
+      className="navbar navbar-expand-lg bg-primary navbar-inverse sticky-top"
+      style={{ height: " 5rem" }}
     >
       <div className="container-fluid">
-        <a className="navbar-brand" style={{ marginLeft: "2rem" }} href="/">
+        <a className="navbar-brand ms-4" href="/">
           <img
             src={cw}
             alt=""
@@ -26,7 +26,7 @@ const Navbar = () => {
           />
         </a>
         <p
-          className="text-warning rustu cursor-pointer d-none d-sm-block"
+          className="rustu text-warning d-none d-sm-block me-1"
           role="button"
           onClick={() => navigate("/")}
         >
@@ -53,16 +53,16 @@ const Navbar = () => {
               >
                 <button
                   type="button"
-                  className="btn dropdown border-0"
+                  className="btn dropdown border-0 "
                   data-bs-toggle="dropdown"
                   // aria-expanded="false"
                 >
                   <FontAwesomeIcon
-                    className="fa-2x text-light text-center"
+                    className="fa-2x text-warning"
                     icon={faCircleUser}
                   ></FontAwesomeIcon>
                 </button>
-                <ul className="dropdown-menu">
+                <ul className="dropdown-menu me-3">
                   <li>
                     <Link className="dropdown-item" to="/profile">
                       Profile
@@ -70,7 +70,11 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link className="dropdown-item" to="/newblog">
-                      New
+                      New Blog
+                      <FontAwesomeIcon
+                        className="fa-x text-warning me-2"
+                        icon={faStar}
+                      ></FontAwesomeIcon>
                     </Link>
                   </li>
                   <li>

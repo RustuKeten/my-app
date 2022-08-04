@@ -21,7 +21,7 @@ import {
 import {
   toastErrorNotify,
   toastSuccessNotify,
-  // toastWarnNotify,
+  toastWarnNotify,
 } from "./ToastNotify";
 
 const firebaseConfig = {
@@ -63,9 +63,10 @@ export const signIn = async (email, password, navigate) => {
       email,
       password
     );
-    toastSuccessNotify("Login Successfully!");
     navigate("/");
-    console.log(userCredential);
+    toastSuccessNotify("Login Successfully!");
+
+    // console.log(userCredential);
   } catch (error) {
     toastErrorNotify(error.message);
     console.log(error);
@@ -93,8 +94,8 @@ export const signUpProvider = (navigate) => {
   signInWithPopup(auth, provider)
     .then((result) => {
       console.log(result);
-      navigate("/");
-      toastSuccessNotify("Registered Successfully!");
+      toastSuccessNotify("Login Successfully!");
+      // navigate("/");
     })
     .catch((error) => {
       toastErrorNotify(error.message);
@@ -132,15 +133,15 @@ export const readData = (setBlogData) => {
 
 //*step Update Data;
 
-export const updateData = (id, title, imageUrl, content) => {
+export const updateData = (id, title, imageUrl, content, email) => {
   const db = getDatabase();
   update(ref(db, `/${id}`), {
     id: id,
     title: title,
     imageUrl: imageUrl,
     content: content,
+    email: email,
   });
-  return update;
 };
 
 export const deleteData = (id, title, imageUrl, content, email) => {

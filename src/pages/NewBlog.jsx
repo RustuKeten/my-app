@@ -3,12 +3,15 @@ import blok from "../assets/blok.png";
 import { AuthContext } from "../context/AuthContext";
 import { writeNewBlog } from "../helpers/firebase";
 import { useNavigate } from "react-router-dom";
+import { BlogContext } from "../context/BlogContext";
 
 const NewBlog = () => {
-  const [title, setTitle] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
-  const [content, setContent] = useState("");
+  // const [title, setTitle] = useState("");
+  // const [imageUrl, setImageUrl] = useState("");
+  // const [content, setContent] = useState("");
   const { currentUser } = useContext(AuthContext);
+  const { title, setTitle, imageUrl, setImageUrl, content, setContent } =
+    useContext(BlogContext);
   const navigate = useNavigate();
   const handleSubmitBlog = (e) => {
     e.preventDefault();
@@ -16,6 +19,9 @@ const NewBlog = () => {
     const id = new Date().getTime();
     const email = currentUser.email;
     writeNewBlog(id, title, imageUrl, content, email);
+    setTitle("");
+    setImageUrl("");
+    setContent("");
     navigate("/");
   };
   return (
@@ -28,7 +34,7 @@ const NewBlog = () => {
                 <img src="" alt="" />
                 <form onSubmit={handleSubmitBlog}>
                   <img
-                    src={blok}
+                    src={imageUrl}
                     alt=""
                     width="180"
                     height="180"
