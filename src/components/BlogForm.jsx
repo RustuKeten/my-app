@@ -17,8 +17,10 @@ const BlogForm = () => {
         role="button"
         key={index}
         onClick={() => {
-          navigate("/details" + item.id);
-          !currentUser && toastWarnNotify("please log in to see details!");
+          currentUser
+            ? navigate("/details" + item.id)
+            : toastWarnNotify("please log in to see details!") &&
+              navigate("/login");
         }}
       >
         <div className="card  card-deck d-flex align-items-center p-1 text-dark ">
@@ -26,12 +28,20 @@ const BlogForm = () => {
             className="card-img-top"
             src={item.imageUrl}
             alt=""
-            style={({ width: "18rem" }, { height: "25rem" })}
+            style={({ width: "18rem" }, { height: "18rem" })}
           />
-          <div className="card-body">
+          <div
+            className="card-body "
+            style={({ width: "18rem" }, { height: "15rem" })}
+          >
             <h5 className="card-title">{item.title}</h5>
-            <p className="card-text">{item.content}</p>
-            <h6 className="card-title">{item.email}</h6>
+            <p
+              className="card-text overflow-hidden"
+              style={({ width: "18rem" }, { height: "5rem" })}
+            >
+              {item.content}
+            </p>
+            <h6 className="card-title overflow-hidden">{item.email}</h6>
             <a href="# " className="btn btn-primary">
               Like and Share
             </a>

@@ -84,6 +84,16 @@ const Login = () => {
                           className="pt-2 ps-1"
                         />
                       </button>
+                      <button
+                        className="btn btn-outline-light btn-lg px-5 register mt-1"
+                        type="submit"
+                        style={{ borderRadius: " 1rem" }}
+                        onClick={() => navigate("/register")}
+                      >
+                        <small>
+                          Don't You Have An Account Please Register Here
+                        </small>
+                      </button>
                     </form>
                   </div>
                 </div>

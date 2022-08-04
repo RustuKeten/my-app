@@ -25,14 +25,9 @@ const Details = () => {
     .map((filteredData, index) => {
       // console.log(filteredData);
       return (
-        <div key={index} className="justify-content-center">
-          <div className="text-center text-primary">
-            <h1>Details</h1>
-          </div>
-          <div
-            className="card mb-3 justify-content-center"
-            style={{ width: "45rem" }}
-          >
+        <div key={index}>
+          <h1 className="text-center">Details</h1>
+          <div className="card justify-content-center">
             <img className="card-img-top " src={filteredData.imageUrl} alt="" />
             <div className="card-body">
               <h5 className="card-title bg-success">{filteredData.title}</h5>
