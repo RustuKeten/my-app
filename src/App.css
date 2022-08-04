@@ -92,8 +92,7 @@ h1::after {
 .register {
   background: #0d6efd;
 }
-.registerContainer,
-.loginContainer {
+.Container {
   background-image: url(https://picsum.photos/800/800);
   background-size: cover;
 }

@@ -1,12 +1,14 @@
-import React, { useContext, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useContext } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { BlogContext } from "../context/BlogContext";
+import { deleteData } from "../helpers/firebase";
 
 const Details = () => {
   const { currentUser } = useContext(AuthContext);
   const { blogData } = useContext(BlogContext);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   return blogData
     ?.filter((item) => id == item.id)
@@ -21,11 +23,7 @@ const Details = () => {
             className="card mb-3 justify-content-center"
             style={{ width: "45rem" }}
           >
-            <img
-              className="card-img-top "
-              src={filteredData.imageUrl}
-              alt="Card image cap"
-            />
+            <img className="card-img-top " src={filteredData.imageUrl} alt="" />
             <div className="card-body">
               <h5 className="card-title bg-success">{filteredData.title}</h5>
               <p className="card-text">{filteredData.content}</p>
@@ -35,8 +33,19 @@ const Details = () => {
             </div>
             {currentUser.email === filteredData.email && (
               <>
-                <button>Update</button>
-                <button>Delete</button>
+                <button
+                  onClick={() => navigate("/updateBlog" + filteredData.id)}
+                >
+                  Update
+                </button>
+                <button
+                  onClick={() => {
+                    deleteData(filteredData.id);
+                    navigate("/");
+                  }}
+                >
+                  Delete
+                </button>
               </>
             )}
           </div>

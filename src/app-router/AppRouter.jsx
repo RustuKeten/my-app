@@ -9,6 +9,7 @@ import Details from "../pages/Details";
 import Profile from "../pages/Profile";
 import NewBlog from "../pages/NewBlog";
 import BlogForm from "../components/BlogForm";
+import UpdateBlog from "../pages/UpdateBlog";
 const AppRouter = () => {
   return (
     <>
@@ -18,6 +19,7 @@ const AppRouter = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/details:id" element={<Details />} />
+        <Route path="/updateBlog:id" element={<UpdateBlog />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/newblog" element={<NewBlog />} />
         <Route path="/blogForm" element={<BlogForm />} />

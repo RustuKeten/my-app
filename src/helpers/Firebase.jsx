@@ -9,7 +9,14 @@ import {
   signInWithPopup,
   updateProfile,
 } from "firebase/auth";
-import { getDatabase, set, ref, onValue } from "firebase/database";
+import {
+  getDatabase,
+  set,
+  ref,
+  onValue,
+  update,
+  remove,
+} from "firebase/database";
 
 import {
   toastErrorNotify,
@@ -120,5 +127,29 @@ export const readData = (setBlogData) => {
         setBlogData((oldArray) => [...oldArray, item]);
       });
     }
+  });
+};
+
+//*step Update Data;
+
+export const updateData = (id, title, imageUrl, content) => {
+  const db = getDatabase();
+  update(ref(db, `/${id}`), {
+    id: id,
+    title: title,
+    imageUrl: imageUrl,
+    content: content,
+  });
+  return update;
+};
+
+export const deleteData = (id, title, imageUrl, content, email) => {
+  const db = getDatabase();
+  remove(ref(db, `/${id}`), {
+    id: id,
+    title: title,
+    imageUrl: imageUrl,
+    content: content,
+    email: email,
   });
 };

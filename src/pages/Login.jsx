@@ -17,7 +17,7 @@ const Login = () => {
     signUpProvider(navigate("/"));
   };
   return (
-    <div className="loginContainer">
+    <div className="Container">
       <section className="vh-100 gradient-custom">
         <div className="container py-5 h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
