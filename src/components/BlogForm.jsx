@@ -3,6 +3,8 @@ import { BlogContext } from "../context/BlogContext";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { toastWarnNotify } from "../helpers/ToastNotify";
+import { faHeart, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const BlogForm = () => {
   const { blogData } = useContext(BlogContext);
@@ -23,7 +25,7 @@ const BlogForm = () => {
               navigate("/login");
         }}
       >
-        <div className="card  card-deck d-flex align-items-center p-1 text-dark ">
+        <div className="card  card-deck d-flex align-items-center p-1 text-dark text-center ">
           <img
             className="card-img-top"
             src={item.imageUrl}
@@ -42,9 +44,14 @@ const BlogForm = () => {
               {item.content}
             </p>
             <h6 className="card-title overflow-hidden">{item.email}</h6>
-            <a href="# " className="btn btn-primary">
-              Like and Share
-            </a>
+            <FontAwesomeIcon
+              className="fa-2x text-danger mt-3 "
+              icon={faHeart}
+            ></FontAwesomeIcon>
+            <FontAwesomeIcon
+              className="fa-2x text-dark ms-3 "
+              icon={faThumbsUp}
+            ></FontAwesomeIcon>
           </div>
         </div>
       </div>
