@@ -30,7 +30,7 @@ const BlogForm = () => {
             className="card-img-top"
             src={item.imageUrl}
             alt=""
-            style={({ width: "18rem" }, { height: "18rem" })}
+            style={({ width: "18rem" }, { height: "15rem" })}
           />
           <div
             className="card-body "

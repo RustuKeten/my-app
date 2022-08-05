@@ -44,7 +44,7 @@ const Details = () => {
                 <div className="card-body">
                   <h5 className="card-title">{filteredData.title}</h5>
                   <p className="card-text">{filteredData.content}</p>
-                  <h5 className="card-title">{filteredData.email}</h5>
+                  <h5 className="card-title mt-5">{filteredData.email}</h5>
                 </div>
               </div>
               {currentUser.email === filteredData.email && (
